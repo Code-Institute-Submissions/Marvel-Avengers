@@ -9,7 +9,7 @@ MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 DBS_NAME = 'marvel'
 COLLECTION_NAME = 'avengers'
-FIELDS = {'Name/Alias': True, 'Appearances': True, 'Current?': True, 'Gender': True,
+FIELDS = {'Name/Alias': True, 'Appearances': True, 'Current': True, 'Gender': True,
           'Full/Reserve': True, 'Year': True, 'Honorary': True, 'Death1': True}
 
 
