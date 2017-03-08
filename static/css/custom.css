@@ -1,3 +1,11 @@
+/*Colours - Scale of purple colours for graphs
+#4B0082
+#6A5ACD
+#9370DB
+#D7BDE2
+
+*/
+
 /* Bg image */
 #container {
     background-image: url("../img/avengers-bg.jpg");
@@ -10,7 +18,7 @@
 }
 
 .semi-trans{
-    opacity: 0.9; /*Let background through the graphs*/
+    opacity: 0.93; /*Let background through the graphs*/
 }
 
 .dc-chart g.row text {
@@ -18,15 +26,20 @@
     font-size: 12px;
 }
 
+/*Modify the color of the bar chart???? */
+.dc-chart rect.stack{
+    fill: red;
+}
+
 .dc-chart .pie-slice{
     fill: black; /*Black text in pie charts */
     font-size: 12px;
 }
 
-#number-avengers {
+#n-avengers {
     font-size: 60px;
     height: 90px;
-    background: #E67E22;
+    background: #6A5ACD;
     /*position: relative;*/
     color: white;
     vertical-align: middle;

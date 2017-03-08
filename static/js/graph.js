@@ -120,7 +120,7 @@ function makeGraphs(error, avengersJson){
         .transitionDuration(1500)
         .dimension(currentDim)
         .group(numAvengersByCurrent)
-        .colors(d3.scale.ordinal().range(['#FF8000', '#3399FF', '#66CC00', '#FFFF33']))
+        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
         ;
 
 
@@ -132,7 +132,7 @@ function makeGraphs(error, avengersJson){
         .innerRadius(40)
         .dimension(honoraryDim)
         .group(numAvengersByHonorary)
-        .colors(d3.scale.ordinal().range(['#FF8000', '#3399FF', '#66CC00', '#FFFF33']))
+        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
         .legend(dc.legend().x(0).y(10))
         .minAngleForLabel(0.5)
         .externalLabels(0.05)
@@ -149,7 +149,7 @@ function makeGraphs(error, avengersJson){
         .transitionDuration(1500)
         .dimension(genderDim)
         .group(numAvengersByGender)
-       .colors(d3.scale.ordinal().range(['#FF8000', '#3399FF', '#66CC00', '#FFFF33']));
+       .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']));
 
 
     // Row Chart Death1
@@ -158,7 +158,7 @@ function makeGraphs(error, avengersJson){
         .height(220)
         .dimension(death1Dim)
         .group(numAvengersByDeath1)
-        .colors(d3.scale.ordinal().range([ '#FF8000', '#3399FF', '#66CC00', '#FFFF33']))
+        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
         .xAxis().ticks(4);
 
 
