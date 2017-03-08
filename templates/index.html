@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
     <link rel="stylesheet" href="../static/lib/css/introjs.css" />
 </head>
+
 <body class="application" id="container">
 
     <!-- Navigation bar -->
    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="./">Joining The Avengers Is As Deadly As Jumping Off A Four-Story Building</a>
+        <div  id="navbar-bar" class="container-fluid">
+            <div  class="navbar-header">
+                <a id="navbar-text" class="navbar-brand" href="./">The Avengers from 1900 to 2015</a>
             </div>
         </div>
     </div>
@@ -26,10 +27,23 @@
         <!-- First row -->
         <div class="row" >
              <!-- menu select -->
-            <div class="col-sm-1">
-                <div class="chart-wrapper">
+            <div class="col-sm-4">
+                <div class="chart-wrapper semi-trans">
                     <div class="chart-title">
-                        Member currently active on an avengers affiliated team
+                        List of Avengers
+                    </div>
+                    <div class="chart-stage">
+                        <div id="menu-select-avenger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- End menu select -->
+
+             <!-- menu select -->
+            <div class="col-sm-3">
+                <div class="chart-wrapper semi-trans">
+                    <div class="chart-title">
+                        Currently active on an affiliated team
                     </div>
                     <div class="chart-stage">
                         <div id="menu-select-current"></div>
@@ -38,10 +52,11 @@
             </div>
             <!-- End menu select -->
 
-<!-- menu select -->
-            <div class="col-sm-1">
-                <div class="chart-wrapper">
-                    <div class="chart-title">
+
+            <!-- Metric Number Avengers -->
+            <div class="col-sm-3">
+                <div class="chart-wrapper semi-trans">
+                    <div class="chart-title title-bold">
                         Number of Avengers
                     </div>
                     <div class="chart-stage">
@@ -50,9 +65,57 @@
                 </div>
             </div>
             <!-- End menu select -->
+        </div>
+       <!-- End first row -->
 
-            <!-- Honorary Pie Chart
-            <div class="col-sm-4">
+       <!-- Second row -->
+       <div class="row" >
+             <!-- Year Bar Chart -->
+             <div class="col-sm-7">
+                 <div class="chart-wrapper semi-trans">
+                     <div class="chart-title">
+                         Year joined
+                     </div>
+                     <div class="chart-stage">
+                         <div id="year-bar-chart"></div>
+                     </div>
+                 </div>
+             </div>
+           <!-- End Time Bar Chart -->
+
+            <!-- Current Pie Chart -->
+           <div class="col-sm-3">
+               <div class="chart-wrapper semi-trans">
+                   <div class="chart-title">
+                       Current
+                   </div>
+                   <div class="chart-stage">
+                       <div id="current-chart"></div>
+                   </div>
+               </div>
+           </div>
+           <!-- Current Pie Chart -->
+
+        </div>
+       <!-- End Second row -->
+
+       <!-- Third row -->
+       <div class="row">
+           <!-- Gender Pie Chart -->
+            <div class="col-sm-3">
+                <div class="chart-wrapper semi-trans" >
+                    <div class="chart-title">
+                        Avenger Gender
+                    </div>
+                    <div class="chart-stage semi-trans">
+                        <div id="gender-pie-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Gender Pie Chart -->
+
+           <!-- Honorary Pie Chart-->
+            <div class="col-sm-3">
                 <div class="chart-wrapper" >
                     <div class="chart-title">
                         Honorary
@@ -64,22 +127,11 @@
             </div>
             <!-- End Honorary Pie Chart -->
 
-             <!-- Gender Pie Chart -->
-            <div class="col-sm-4">
-                <div class="chart-wrapper" >
-                    <div class="chart-title">
-                        Avenger Gender
-                    </div>
-                    <div class="chart-stage">
-                        <div id="gender-pie-chart"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Gender Pie Chart -->
 
-              <!-- Honorary Row Chart -->
-            <div class="col-sm-4">
-                <div class="chart-wrapper" >
+
+              <!-- Honorary Row Chart
+            <div class="col-sm-3">
+                <div class="chart-wrapper semi-trans" >
                     <div class="chart-title">
                         Avenger Status (Honorary)
                     </div>
@@ -90,34 +142,18 @@
             </div>
             <!-- End Honorary Row Chart -->
 
-        </div>
-       <div class="row">
-           <!-- Time Bar Chart -->
-                    <div class="col-sm-8">
-                        <div class="chart-wrapper">
-                            <div class="chart-title">
-                                Year joined
-                            </div>
-                            <div class="chart-stage">
-                                <div id="year-bar-chart"></div>
-                            </div>
-                        </div>
+            <!-- Death1 Row Chart -->
+            <div class="col-sm-4">
+                <div class="chart-wrapper semi-trans" >
+                    <div class="chart-title">
+                        Death
                     </div>
-                    <!-- End Time Bar Chart -->
-       </div>
-       <div>
-            <!-- Appearances Bar Chart -->
-                    <div class="col-sm-8">
-                        <div class="chart-wrapper">
-                            <div class="chart-title">
-                                Appearances
-                            </div>
-                            <div class="chart-stage">
-                                <div id="appearances-bar-chart"></div>
-                            </div>
-                        </div>
+                    <div class="chart-stage">
+                        <div id="death1-row-chart"></div>
                     </div>
-                    <!-- End Time Bar Chart -->
+                </div>
+            </div>
+            <!-- End Honorary Row Chart -->
        </div>
    </div>
 

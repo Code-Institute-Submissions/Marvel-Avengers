@@ -1,0 +1,50 @@
+/* Bg image */
+#container {
+    background-image: url("../img/avengers-bg.jpg");
+}
+
+/* Style for graphs */
+.chart-title{
+    background-color: #EAF2F8;
+    opacity: 0.8;
+}
+
+.semi-trans{
+    opacity: 0.9; /*Let background through the graphs*/
+}
+
+.dc-chart g.row text {
+    fill: black; /*Black text in row charts */
+    font-size: 12px;
+}
+
+.dc-chart .pie-slice{
+    fill: black; /*Black text in pie charts */
+    font-size: 12px;
+}
+
+#number-avengers {
+    font-size: 60px;
+    height: 90px;
+    background: #E67E22;
+    /*position: relative;*/
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    padding: 12px 10px 0 10px;
+}
+
+#menu-select-avenger, #menu-select-current{
+    font-size: 18px;
+    height:90px;
+
+}
+
+#navbar-bar{
+    background-color: #154360;
+    color: red;
+}
+
+#navbar-text{
+    font-size:25px;
+}
