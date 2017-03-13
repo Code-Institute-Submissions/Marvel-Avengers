@@ -1,10 +1,6 @@
-/*Colours - Scale of purple colours for graphs
-#4B0082
-#6A5ACD
-#9370DB
-#D7BDE2
+/*Colours - colour scale for graphs
+/*['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']*/
 
-*/
 
 /* Bg image */
 #container {
@@ -26,11 +22,6 @@
     font-size: 12px;
 }
 
-/*Modify the color of the bar chart???? */
-.dc-chart rect.stack{
-    fill: red;
-}
-
 .dc-chart .pie-slice{
     fill: black; /*Black text in pie charts */
     font-size: 12px;
@@ -39,7 +30,7 @@
 #n-avengers {
     font-size: 60px;
     height: 90px;
-    background: #6A5ACD;
+    background: #20B2AA;
     /*position: relative;*/
     color: white;
     vertical-align: middle;
@@ -49,8 +40,7 @@
 
 #menu-select-avenger, #menu-select-current{
     font-size: 18px;
-    height:90px;
-
+    height:80px;
 }
 
 #navbar-bar{

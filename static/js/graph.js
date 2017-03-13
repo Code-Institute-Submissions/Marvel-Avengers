@@ -12,23 +12,20 @@ queue()
 
 function makeGraphs(error, avengersJson){
     //Clean projectJson data
-    var avengers = avengersJson; //Pass the data inside the projectsJson variable into our dataSet variable
+    var avengers = avengersJson; // Pass the data inside the avengersJson variable into our dataSet variable
+    var dateFormat = d3.time.format("%Y"); // Parse the date data type to suit our charting needs. It
 
     avengers.forEach(function(d){
+        d["Year"]  = d["Year"].toFixed() // Convert Year to string to be parsed
+        d["Year"] = dateFormat.parse(d["Year"]); // It needs to be a date to use a time scale in the bar chart.
         d["Appearances"] = +d["Appearances"]
-        d["Year"] = +d["Year"]
     });
 
-    //Ingesting the data into a crossfilter instance and creating dimensions based on the crossfilter instance
-    //Crossfilter acts as a two way data binding pipeline.
-    //Whenever you make a selection on the data, it is automatically applied to other charts,
-    // as well enabling our drill down functionality.
 
     //Create a Crossfilter instance
     var ndx = crossfilter(avengers);
 
     //Define Dimensions
-
     var currentDim = ndx.dimension(function(d){
         return d["Current"];
     });
@@ -44,33 +41,26 @@ function makeGraphs(error, avengersJson){
     var death1Dim = ndx.dimension(function (d) {
         return d["Death1"]
     });
-
     var avengersDim = ndx.dimension(function (d) {
         return d["Name-Alias"]
     });
 
     //Calculate metrics and groups for grouping and counting our data
-    var yearGroup = yearDim.group();
     var currentGroup = currentDim.group();
-    var genderGroup = genderDim.group();
     var numAvengersByCurrent = currentDim.group();
     var numAvengersByGender = genderDim.group();
     var numAvengersByHonorary = honoraryDim.group();
     var numAvengersByYear = yearDim.group();
-
     var avengersGroup = avengersDim.group();
     var numAvengersByDeath1 = death1Dim.group();
     var all=ndx.groupAll();
-
 
 
     //Define values (to be used in charts)
     var minYear = yearDim.bottom(1)[0]["Year"];
     var maxYear = yearDim.top(1)[0]["Year"];
 
-    //We define the chart types objects using DC.js library.
-    //We also bind the charts to the div ID's in index.html
-    //Charts
+    //Charts using DC.js library
     var yearChart = dc.barChart("#year-bar-chart");
     var honoraryChart = dc.pieChart("#honorary-pie-chart");
     var genderChart = dc.pieChart("#gender-pie-chart");
@@ -79,17 +69,16 @@ function makeGraphs(error, avengersJson){
     var death1RowChart = dc.rowChart("#death1-row-chart")
 
 
-
     //We assign properties and values to our charts.
-    //We also include a select menu to choose between any of all US states for a particular date
-    selectField = dc.selectMenu('#menu-select-current')
-        .dimension(currentDim)
-        .group(currentGroup);
-
-
+    // Menu to select Avenger
     selectFieldName = dc.selectMenu('#menu-select-avenger')
      .dimension(avengersDim)
      .group(avengersGroup);
+
+    // Menu to select avengers currently in the team
+   // selectField = dc.selectMenu('#menu-select-current')
+   //     .dimension(currentDim)
+   //     .group(currentGroup);
 
     // Metric Num Avengers
     numberAvengers
@@ -99,7 +88,7 @@ function makeGraphs(error, avengersJson){
         })
         .group(all);
 
-    //Time-line in Years
+    //Time-line in Years (when the avengers joined the team)
     yearChart
         .width(800)
         .height(220)
@@ -108,6 +97,7 @@ function makeGraphs(error, avengersJson){
         .group(numAvengersByYear)
         .transitionDuration(500)
         .x(d3.time.scale().domain([minYear, maxYear]))
+        .colors(d3.scale.ordinal().range(['#098BDC']))
         .elasticY(true)
         .xAxisLabel("Year")
         .yAxis().ticks(8);
@@ -120,7 +110,7 @@ function makeGraphs(error, avengersJson){
         .transitionDuration(1500)
         .dimension(currentDim)
         .group(numAvengersByCurrent)
-        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
+        .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']))
         ;
 
 
@@ -132,7 +122,7 @@ function makeGraphs(error, avengersJson){
         .innerRadius(40)
         .dimension(honoraryDim)
         .group(numAvengersByHonorary)
-        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
+        .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']))
         .legend(dc.legend().x(0).y(10))
         .minAngleForLabel(0.5)
         .externalLabels(0.05)
@@ -149,7 +139,7 @@ function makeGraphs(error, avengersJson){
         .transitionDuration(1500)
         .dimension(genderDim)
         .group(numAvengersByGender)
-       .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']));
+       .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']));
 
 
     // Row Chart Death1
@@ -158,7 +148,7 @@ function makeGraphs(error, avengersJson){
         .height(220)
         .dimension(death1Dim)
         .group(numAvengersByDeath1)
-        .colors(d3.scale.ordinal().range(['#4B0082', '#6A5ACD', '#9370DB', '#D7BDE2']))
+        .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']))
         .xAxis().ticks(4);
 
 
