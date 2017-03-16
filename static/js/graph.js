@@ -44,7 +44,9 @@ function makeGraphs(error, avengersJson){
     var avengersDim = ndx.dimension(function (d) {
         return d["Name-Alias"]
     });
-
+    var appearencesDim = ndx.dimension(function (d){
+        return d["Appearances"]
+    })
     //Calculate metrics and groups for grouping and counting our data
     var currentGroup = currentDim.group();
     var numAvengersByCurrent = currentDim.group();
@@ -54,7 +56,9 @@ function makeGraphs(error, avengersJson){
     var avengersGroup = avengersDim.group();
     var numAvengersByDeath1 = death1Dim.group();
     var all=ndx.groupAll();
-
+    var numAppearancesByAvenger = avengersDim.group().reduceSum(function (d){
+        return d["Appearances"];
+    });
 
     //Define values (to be used in charts)
     var minYear = yearDim.bottom(1)[0]["Year"];
@@ -65,6 +69,7 @@ function makeGraphs(error, avengersJson){
     var honoraryChart = dc.pieChart("#honorary-pie-chart");
     var genderChart = dc.pieChart("#gender-pie-chart");
     var numberAvengers = dc.numberDisplay("#number-avengers");
+    //var numberAppearances = dc.numberDisplay("#number-appearances");
     var currentChart = dc.pieChart("#current-chart");
     var death1RowChart = dc.rowChart("#death1-row-chart")
 
@@ -73,7 +78,7 @@ function makeGraphs(error, avengersJson){
     // Menu to select Avenger
     selectFieldName = dc.selectMenu('#menu-select-avenger')
      .dimension(avengersDim)
-     .group(avengersGroup);
+     .group(numAppearancesByAvenger);
 
     // Menu to select avengers currently in the team
    // selectField = dc.selectMenu('#menu-select-current')
@@ -87,6 +92,8 @@ function makeGraphs(error, avengersJson){
             return d;
         })
         .group(all);
+
+
 
     //Time-line in Years (when the avengers joined the team)
     yearChart
@@ -110,8 +117,7 @@ function makeGraphs(error, avengersJson){
         .transitionDuration(1500)
         .dimension(currentDim)
         .group(numAvengersByCurrent)
-        .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']))
-        ;
+        .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']));
 
 
    // Pie Chart Honorary
