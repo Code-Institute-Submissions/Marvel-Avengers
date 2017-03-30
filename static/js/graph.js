@@ -157,12 +157,5 @@ function makeGraphs(error, avengersJson){
         .colors(d3.scale.ordinal().range(['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']))
         .xAxis().ticks(4);
 
-
-
-
-
-
-
-
     dc.renderAll();
 }

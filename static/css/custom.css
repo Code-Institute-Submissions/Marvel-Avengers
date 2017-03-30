@@ -27,22 +27,22 @@
     font-size: 12px;
 }
 
+#menu-select-avenger {
+    font-size: 18px;
+    height:80px;
+}
+
 #n-avengers {
     font-size: 60px;
     height: 90px;
     background: #20B2AA;
-    /*position: relative;*/
     color: white;
     vertical-align: middle;
     text-align: center;
     padding: 12px 10px 0 10px;
 }
 
-#menu-select-avenger, #menu-select-current{
-    font-size: 18px;
-    height:80px;
-}
-
+/* Styles for navigation bar */
 #navbar-bar{
     background-color: #154360;
     color: red;
@@ -51,3 +51,35 @@
 #navbar-text{
     font-size:25px;
 }
+
+
+/* Styles for intro button */
+.intro_button{
+    margin: 0 auto 10px auto;
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: #DF0101;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.intro_button:hover{
+    background-color: #FF4000;
+}
+
+.small-text{
+    font-size: 12px;
+}
+
+/* Media queries */
+@media screen and (max-width: 1200px) and (min-width: 691px) {
+	#menu-select-avenger{
+		font-size: small;
+	}
+    #n-avengers{
+        font-size: 40px;
+    }
+}
+

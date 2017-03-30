@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/keen-dashboards.css')}}">
     <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
     <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
-    <link rel="stylesheet" href="../static/lib/css/introjs.css" />
+    <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/introjs.css')}}" />
 </head>
 
 <body class="application" id="container">
@@ -21,14 +21,39 @@
         </div>
     </div>
 
+    <div id="start-tour" class="container-fluid">
+       <div class="row">
+
+
+           <!-- Button to start the tour -->
+           <div class="col-sm-12">
+                <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">
+                    Tell Me More!</button>
+           </div>
+           <!-- Extra div to include an introduction in the tour -->
+           <div class="col-sm-6 col-sm-offset-4" data-step="1"
+                data-intro="This dashboard shows part of the data behind the story [Joining The Avengers Is As Deadly
+                As Jumping Off A Four-Story Building]
+                (http://fivethirtyeight.com/features/avengers-death-comics-age-of-ultron).
+                The dataset avengers.csv was downloaded from https://github.com/fivethirtyeight/data/tree/master/avengers
+                and it shows the details of Marvel comic book characters between the time they joined the Avengers
+                and April 30, 2015." style="font-weight: normal" data-position="center">
+           </div>
+       </div>
+    </div>
+
     <!-- Divs with graphs -->
    <div id="outer" class="container-fluid">
 
-        <!-- First row -->
+
         <div class="row" >
              <!-- menu select -->
             <div class="col-sm-4">
-                <div class="chart-wrapper semi-trans">
+                <div class="chart-wrapper semi-trans" data-step="2"
+                     data-intro="List of Avengers with full name or alias of the character and
+                      the number of comic books that character appeared. Select one Avenger to see individual details
+                      or use the other graphs to filter and use select to see the list of Avengers matching those criteria."
+                     style="font-weight: normal" data-position="center">
                     <div class="chart-title">
                         List of Avengers: Appearances
                     </div>
@@ -42,7 +67,8 @@
 
             <!-- Metric Number Avengers -->
             <div class="col-sm-3">
-                <div class="chart-wrapper semi-trans">
+                <div class="chart-wrapper semi-trans" data-step="3"
+                     data-intro="Number of Avengers that joined the team for the selected criteria." style="font-weight: normal" data-position="center">
                     <div class="chart-title title-bold">
                         Number of Avengers
                     </div>
@@ -55,7 +81,10 @@
 
             <!-- Year Bar Chart -->
              <div class="col-sm-7">
-                 <div class="chart-wrapper semi-trans">
+                 <div class="chart-wrapper semi-trans" data-step="4"
+                     data-intro="The year the character was introduced as a full or reserve member of the Avengers.
+                      Select a interval of time or leave it as default for all years."
+                        style="font-weight: normal" data-position="center">
                      <div class="chart-title">
                          Year joined
                      </div>
@@ -68,7 +97,9 @@
 
             <!-- Current Pie Chart -->
            <div class="col-sm-3">
-               <div class="chart-wrapper semi-trans">
+               <div class="chart-wrapper semi-trans" data-step="5"
+                     data-intro="Are the members currently active on an avengers affiliated team?"
+                        style="font-weight: normal" data-position="center">
                    <div class="chart-title">
                        Current
                    </div>
@@ -82,7 +113,9 @@
 
            <!-- Gender Pie Chart -->
             <div class="col-sm-3">
-                <div class="chart-wrapper semi-trans" >
+                <div class="chart-wrapper semi-trans" data-step="6"
+                     data-intro="The recorded gender of the characters."
+                     style="font-weight: normal" data-position="center" >
                     <div class="chart-title">
                         Avenger Gender
                     </div>
@@ -95,7 +128,10 @@
 
            <!-- Honorary Pie Chart-->
             <div class="col-sm-3">
-                <div class="chart-wrapper" >
+                <div class="chart-wrapper semi-trans" data-step="7"
+                     data-intro="The status of the avenger, if they were given 'Honorary' Avenger status, if they are
+                     simply in the 'Academy', 'Probationary' or 'Full' otherwise."
+                     style="font-weight: normal" data-position="center">
                     <div class="chart-title">
                         Honorary
                     </div>
@@ -106,24 +142,11 @@
             </div>
             <!-- End Honorary Pie Chart -->
 
-
-
-              <!-- Honorary Row Chart
-            <div class="col-sm-3">
-                <div class="chart-wrapper semi-trans" >
-                    <div class="chart-title">
-                        Avenger Status (Honorary)
-                    </div>
-                    <div class="chart-stage">
-                        <div id="honorary-row-chart"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Honorary Row Chart -->
-
             <!-- Death1 Row Chart -->
             <div class="col-sm-4">
-                <div class="chart-wrapper semi-trans" >
+                <div class="chart-wrapper semi-trans" data-step="8"
+                     data-intro="Yes if the Avenger died, No if he/she didn't."
+                     style="font-weight: normal" data-position="center">
                     <div class="chart-title">
                         Death
                     </div>
@@ -137,7 +160,7 @@
    </div>
 
    <hr>
-   <p class="small text-muted">Data viz &#9829; from Code Institute</p>
+   <p class="small text-muted">Irene Garcia (2017) - Project 2 Code Institute</p>
    <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
    <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
    <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
@@ -146,7 +169,8 @@
    <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
    <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
    <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
-   <script src="../static/lib/js/intro.js" type="text/javascript"></script>
+   <script src="{{ url_for ('static', filename='lib/js/intro.js')}}"></script>
+
 
 
 </body>
