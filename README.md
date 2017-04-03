@@ -90,3 +90,8 @@ do it, so when the screen is smaller the overflow is hidden and you can only see
 5. Run marvel.py
 6. The project will run in [localhost](http://localhost:5000/).
 
+
+NOTE:
+The master branch is linked to Heroku to deploy automatically.  
+* Deployed version in Heroku: https://fierce-hollows-13767.herokuapp.com/  
+* Deployed version in custom domain: http://www.avengers.ireneg.eu/ 
