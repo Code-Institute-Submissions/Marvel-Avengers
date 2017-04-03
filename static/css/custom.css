@@ -1,7 +1,6 @@
 /*Colours - colour scale for graphs
 /*['#20B2AA', '#098bdc', '#ceebfd', '#B0C4DE']*/
 
-
 /* Bg image */
 #container {
     background-image: url("../img/avengers-bg.jpg");
@@ -69,9 +68,13 @@
     background-color: #FF4000;
 }
 
+
+/* Other styles */
 .small-text{
     font-size: 12px;
+    color: #ffffff;
 }
+
 
 /* Media queries */
 @media screen and (max-width: 1200px) and (min-width: 691px) {

@@ -5,6 +5,7 @@ import json
 
 app = Flask(__name__)
 
+# Connect to MONGODB Database
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 DBS_NAME = 'marvel'
@@ -13,12 +14,12 @@ FIELDS = {'_id': False, 'Name-Alias': True, 'Appearances': True, 'Current': True
           'Full-Reserve': True, 'Year': True, 'Honorary': True, 'Death1': True}
 
 
-
+# Route to index to render the html template with the graphs
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+# Route to connect to Mongo DB, get the data from the DB and store it in json_projects
 @app.route("/marvel/avengers-clean")
 def marvel_avengers():
     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
@@ -33,4 +34,4 @@ def marvel_avengers():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

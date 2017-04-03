@@ -11,29 +11,30 @@ The dataset avengers.csv was downloaded from [here](https://github.com/fivethirt
 and it shows the details of Marvel comic book characters between the time they joined the Avengers and April 30, 2015.
 
 I created this project from scratch based on the information provided from Code Institute for the School Donations project.
-1.	Create the Python app required to server the database content to the web interface.
-2.	Write the HTML required to display the dashboard.
-3.	Import the JavaScript libraries and write the code required to render the data to our dashboard elements.
-4.	Create core CSS used to style dashboard elements.
-5.  Organise the presentation layer layout to display the data in a visually effective manner.
-6.  Add functionality that provides a Dashboard tutorial, which targets each Dashboard element with an 
+1. Cleaning the data downloaded and save it as avengers-clean.csv 
+2.	Create the Python app required to server the database content to the web interface.
+3.	Write the HTML required to display the dashboard.
+4.	Import the JavaScript libraries and write the code required to render the data to our dashboard elements.
+5.	Create core CSS used to style dashboard elements.
+6.  Organise the presentation layer layout to display the data in a visually effective manner.
+7.  Add functionality that provides a Dashboard tutorial, which targets each Dashboard element with an 
     explanation of its purpose.
 
 
 ## Technology and Structure
 
 The technology used in this project is:
-- D3.js: A JavaScript based visualization engine, which will render interactive charts and graphs based on the data.
+- **D3.js**: A JavaScript based visualization engine, which will render interactive charts and graphs based on the data.
     D3 creates svg based charts which are passed into html div blocks.
-- Dc.js: A JavaScript based wrapper library for D3.js, which makes plotting the charts a lot easier.
-- Crossfilter.js: A JavaScript based data manipulation library that enables two way data binding.
-- Queue.js: An asynchronous helper library for JavaScript.
-- Mongo DB: NoSQL Database used to convert and present our data in JSON format.
-- Flask: A Python based  micro – framework  used to serve our data from the server to our web based interface.
-- Bootstrap: The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
-- keen.js: A dashboard template library. used in conjunction with keen.js to layout our dashboard elements.
-- queue.js: An asynchronous helper library for data ingestion involving multivariate datasets.
-- intro.js: Assign an interactive tool tip to our graphs and display helpful information to the user who is going to use the dashboard.
+- **Dc.js**: A JavaScript based wrapper library for D3.js, which makes plotting the charts a lot easier.
+- **Crossfilter.js**: A JavaScript based data manipulation library that enables two way data binding.
+- **Queue.js**: An asynchronous helper library for JavaScript.
+- **Mongo DB**: NoSQL Database used to convert and present our data in JSON format.
+- **Flask**: A Python based  micro – framework  used to serve our data from the server to our web based interface.
+- **Bootstrap**: The most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+- **keen.js**: A dashboard template library. used in conjunction with keen.js to layout our dashboard elements.
+- **queue.js**: An asynchronous helper library for data ingestion involving multivariate datasets.
+- **intro.js**: Assign an interactive tool tip to our graphs and display helpful information to the user who is going to use the dashboard.
 
 ### Internal Structure / Process
 
@@ -67,11 +68,10 @@ marvel
 
 All the testing was done manually using different browsers (Chrome, Firefox, IE and Opera) 
 and different screen sizes using the Element Inspector and the responsive/device mode.
-
-- Responsiveness: Tested that the bootstrap boxes resize when the screen size decrease or increase. 
-- Content: Tested that the graphs show the correct values when loading the data
-- Data binding: Tested that the graphs show the correct values when the data binding is happening.
-- Tour: Tested that the tooltip created with intro.js shows the right content in the right places, it's fully
+- **Responsiveness**: Tested that the bootstrap boxes resize when the screen size decrease or increase. 
+- **Content**: Tested that the graphs show the correct values when loading the data
+- **Data binding**: Tested that the graphs show the correct values when the data binding is happening.
+- **Tour**: Tested that the tooltip created with intro.js shows the right content in the right places, it's fully
     visible even in small screens - all data steps have been aligned center to achieve that.
     
 
